@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import static de.marcusjanke.m4j.io.StreamUtils.gzipInputStreamStream;
+import static de.marcusjanke.m4j.io.StreamUtils.gzipInputStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StreamUtilsTest {
@@ -14,7 +14,7 @@ public class StreamUtilsTest {
     @Test
     public void shouldWrapWithGZIPInputStream() throws IOException {
         final byte[] gzippedContent = gzip("test");
-        try (InputStream inputStream = gzipInputStreamStream(new ByteArrayInputStream(gzippedContent))) {
+        try (InputStream inputStream = gzipInputStream(new ByteArrayInputStream(gzippedContent))) {
             assertThat(inputStream).isInstanceOf(GZIPInputStream.class);
         }
     }
@@ -22,7 +22,7 @@ public class StreamUtilsTest {
     @Test
     public void shouldNotWrapWithGZIPInputStream() throws IOException {
         final byte[] rawContent = "test".getBytes();
-        try (InputStream inputStream = gzipInputStreamStream(new ByteArrayInputStream(rawContent))) {
+        try (InputStream inputStream = gzipInputStream(new ByteArrayInputStream(rawContent))) {
             assertThat(inputStream).isInstanceOf(PushbackInputStream.class);
         }
     }

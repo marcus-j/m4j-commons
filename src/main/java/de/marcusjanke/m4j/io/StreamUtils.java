@@ -19,7 +19,7 @@ public class StreamUtils {
      * @return {@link InputStream}
      * @throws IOException {@link IOException}
      */
-    public static InputStream gzipInputStreamStream(final InputStream input) throws IOException {
+    public static InputStream gzipInputStream(final InputStream input) throws IOException {
         final PushbackInputStream pushbackInputStream = new PushbackInputStream(input, AMOUNT_OF_GZIP_SIGNATURE_BYTES);
         final byte[] signature = readSignature(pushbackInputStream);
         if (isGZipSignature(signature)) {
