@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id "io.franzbecker.gradle-lombok" version "1.14"
+}
+
+group 'de.marcusjanke-m4j'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+lombok {
+    version = '1.18.4'
+    sha256 = ""
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+}
