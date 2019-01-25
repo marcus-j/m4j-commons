@@ -30,7 +30,7 @@ public class StreamUtils {
     }
 
     private static byte[] readSignature(final PushbackInputStream pb) throws IOException {
-        final byte[] bytes = new byte[StreamUtils.AMOUNT_OF_GZIP_SIGNATURE_BYTES];
+        final byte[] bytes = new byte[AMOUNT_OF_GZIP_SIGNATURE_BYTES];
         pb.read(bytes);
         pb.unread(bytes);
         return bytes;
