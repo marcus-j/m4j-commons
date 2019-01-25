@@ -1,4 +1,4 @@
-package de.marcusjanke.m4j.io;
+package de.marcusjanke.m4j.commons.io;
 
 import lombok.experimental.UtilityClass;
 
